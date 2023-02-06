@@ -1,33 +1,40 @@
 # -*- coding: utf-8 -*-
  
 import sys
-from itertools import accumulate, combinations
-from operator import add, mul
-from functools import reduce
-
-def nCr(n, r):
-    if n < 1 or r < 0 or n < r:
-        return 0
-    else:
-        r = min(r, n-r)
-        numerator = reduce(mul, range(n, n-r, -1), 1)
-        denominator = reduce(mul, range(1, r+1), 1)
-        return numerator // denominator
+#from itertools import accumulate, combinations
+#from operator import add
 
 input = sys.stdin.readline
 
 #(1 ≤ N ≤ 106, 2 ≤ M ≤ 103)
 N, M = map(int, input().split())
 
-prefix_list = list(map(lambda x : x%M, list(accumulate(map(int, input().split())))))
+prefix_list = list(map(int, input().split()))
+
+sums = [0 for _ in range(M)]
+sums[0] = 1
+
+tot = 0
+for i in range(N):
+    tot += prefix_list[i]
+    r = tot%M
+    sums[r] += 1
+    
+#print(sums)
+cnt = 0
+for i in sums:
+    cnt += i*(i-1)//2
+
+print(cnt)
+    
 
 #print(prefix_list)
-tot_cnt = 0
-tot_cnt += prefix_list.count(0)
-for i in range(1, M):
-    tmp_cnt = prefix_list.count(i)
-    if tmp_cnt > 1:
-        tot_cnt += nCr(tmp_cnt, 2)
+# tot_cnt = 0
+# tot_cnt += prefix_list.count(0)
+# for i in range(1, M):
+#     tmp_cnt = prefix_list.count(i)
+#     if tmp_cnt > 1:
+#         tot_cnt += nCr(tmp_cnt, 2)
 
 #print(tot_cnt)
 
