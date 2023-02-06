@@ -12,20 +12,23 @@ public class Partionsum{
 
         int[][] A = new int[N+1][N+1];
         int[][] D = new int[N+1][N+1];
+        int input = 0;
 
         for (int i=1; i<N+1; i++){
             st = new StringTokenizer(br.readLine());
             for (int j=1; j<N+1; j++){
-                A[i][j] = Integer.parseInt(st.nextToken());
+                input = Integer.parseInt(st.nextToken());
+                //System.out.print(input+ "\n");
+                A[i][j] = input;
             }
         }
-
+        //System.out.print(Arrays.toString(A));
         for (int i=1; i<N+1; i++){
             for (int j=1; j<N+1; j++){
                 D[i][j] = D[i-1][j] + D[i][j-1] - D[i-1][j-1] + A[i][j];
             }
         }
-
+        //System.out.print(Arrays.deepToString(D));
         for (int k=1; k<M+1; k++){
             st = new StringTokenizer(br.readLine());
             int x1 = Integer.parseInt(st.nextToken());
@@ -34,6 +37,7 @@ public class Partionsum{
             int y2 = Integer.parseInt(st.nextToken());
             int ans = D[x2][y2] - D[x1-1][y2] - D[x2][y1-1] + D[x1-1][y1-1];
             sb.append(ans + '\n');
+            //System.out.print(ans);
         }
         System.out.print(sb);
     }
