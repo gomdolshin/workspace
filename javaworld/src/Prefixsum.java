@@ -5,36 +5,30 @@ public class Prefixsum{
     public static void main(String[] args) throws IOException{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
-        StringBuilder sb = new StringBuilder();
+        //StringBuilder sb = new StringBuilder();
 
         int N = Integer.parseInt(st.nextToken());
         int M = Integer.parseInt(st.nextToken());
 
-        int[] A = new int[M];
-        
-        //System.out.print(Arrays.toString(A)); // Arrays.toString 1차배열에 대한 print
+        long[] A = new long[M];
 
-        int input = 1;
-        int tot = 0;
-        int r = 0;
-        int cnt = 0;
-
-        A[0] = input;
+        //int tot = 0;
+        long r = 0;
+        long cnt = 0;
 
         st = new StringTokenizer(br.readLine());
         for (int i=1; i<=N; i++){
             
-            tot += Integer.parseInt(st.nextToken());
-            System.out.print(tot+ "\n");
-            r = tot%M;
-            A[r] += 1;
-            System.out.print(r+ "\n");
-            System.out.print(Arrays.toString(A) + "\n");            
+            r += Integer.parseInt(st.nextToken());
+            //r = tot%M;
+            r %= M;
+            A[(int)r] += 1;            
         }
-        System.out.print(Arrays.toString(A)); // Arrays.toString 1차배열에 대한 print
-        //System.out.print(Arrays.toString(A));
-        for (int i=1; i<A.length; i++){
-            cnt += A[i]*A[i-1]/2;
+        cnt += A[0];
+        //System.out.print(Arrays.toString(A)); // Arrays.toString 1차배열에 대한 print
+        //System.out.print(A.length);
+        for (int i=0; i< M; i++){
+            cnt += (A[i]*(A[i]-1))/2;
         }
 
         System.out.print(cnt);

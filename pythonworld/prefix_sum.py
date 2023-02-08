@@ -20,7 +20,7 @@ for i in range(N):
     r = tot%M
     sums[r] += 1
     
-#print(sums)
+print(sums)
 cnt = 0
 for i in sums:
     cnt += i*(i-1)//2
