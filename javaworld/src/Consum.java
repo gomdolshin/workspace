@@ -33,7 +33,7 @@ public class Consum{
             }
         }
         System.out.print(count);
-        
+        br.close();
     }
 }
 

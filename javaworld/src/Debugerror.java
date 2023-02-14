@@ -20,5 +20,6 @@ public class Debugerror{
                 System.out.println(t + " " + answer);
             }
         }
+        sc.close();
     }
 }
