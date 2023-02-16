@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 
-
 from collections import deque
 
 s, p = map(int, input().split())
@@ -32,7 +31,7 @@ print(cnt)
 
 
 '''
-아래의 풀이는 runtime error
+색다른 풀이 / index를 넣고 빼는 부분과 배열을 움직일때는 dictionary를 사용한다는 것을 주목해야함
 '''
 import sys
 #from itertools import accumulate, combinations
