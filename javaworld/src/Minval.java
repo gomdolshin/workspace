@@ -53,6 +53,9 @@ java에서 Deque의 사용법
 3. deque.isEmpty()를 사용해 빈값 체크
 4. deque의 Node라는 클래스를 생성하여 값을 가질수 있도록 유지, LinkedList에는 value랑 index가 존재한다
 
+Deque의 클래스
+ArrayDeque, LinkedBlockingDeque, ConcurrentLinkedDeque, LinkedList
+
 
 BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 => 출력을 한번에 하기위해 BufferedWriter를 사용
